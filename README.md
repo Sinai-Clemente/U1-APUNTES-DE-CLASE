@@ -62,9 +62,19 @@ Y entre algunas otras áreas de relevancia se encuentran: <br>
 
 <h2>1.3. Aspectos matemáticos de la graficación.</h1>
 
+
 <h2>1.4. Modelos del color: RBG, CMY, HSV y HSL.
 
 (En este apartado puedes colocar un tutorial de como iluminar un cubo y sus caras, en blender)
+
+
+\`\`\`python
+def saludo():
+    print("Hola Mundo")
+\`\`\`
+
+
+
 <h2>1.5. Representación y trazo de líneas y polígonos.</h2>
 
 <h3>1.5.1 Formatos de imagen.</h3>
