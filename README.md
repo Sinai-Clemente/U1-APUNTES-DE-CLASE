@@ -73,7 +73,7 @@ def saludo():
     print("Hola Mundo")
 \`\`\`
 
-
+ejemplo 
 
 <h2>1.5. Representación y trazo de líneas y polígonos.</h2>
 
