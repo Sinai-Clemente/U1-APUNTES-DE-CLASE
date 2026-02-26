@@ -35,7 +35,7 @@ Hitos Clave en la Evolución: <br>
 •	Años 90 - Aceleración y Fotorrealismo: Lanzamiento de las tarjetas gráficas de consumo, el estándar OpenGL (1992) y el estreno de Toy Story (1995), el primer largometraje 3D. <br>
 •	Siglo XXI - Alta Definición y Tiempo Real: Las GPUs (NVIDIA GeForce 256 en 1999) permiten renderizado en tiempo real, motores gráficos avanzados (Doom 3, 2003), realidad virtual y aumento de realismo en simulaciones e inteligencia artificial. <br>
 
-<img width="1020" height="500" alt="image" src="https://github.com/user-attachments/assets/4505a7ae-a3e0-43c9-82ec-485cfd1fc3b0" /><br>
+<img width="1532" height="842" alt="image" src="https://github.com/user-attachments/assets/6ccf8a13-1de1-4c27-94f3-e48aa82fc324" /><br>
 
 <h2>1.2. Áreas de aplicación.</h2>
 La graficación por computadora (GC) es un campo multidisciplinario bastante amplio, donde tanto computólogos, matemáticos, físicos, ingenieros, artistas y otros practicantes comparten un mismo objetivo "mostrar un mundo a través de una ventana", nos podemos referir como mundo a un modelo digital, una simulación, o bien, cualquier representación visual que se busque mostrar, y como ventana a cualquier medio para mostrar imágenes, como un proyector, la pantalla de un monitor, tablet, entre otros. Por lo que nos podemos dar una idea de las multiples aplicaciones que se pueden obtener en este campo sobre los diferentes ámbitos, veamos algunas de estas aplicaciones: <br>
@@ -66,10 +66,10 @@ Y entre algunas otras áreas de relevancia se encuentran: <br>
 <img width="1020" height="600" alt="image" src="https://github.com/user-attachments/assets/6c773896-d7a5-4ba9-aa62-1be40b35b9b3" /><br>
 
 <h2>1.3. Aspectos matemáticos de la graficación.</h1>
+Los aspectos matemáticos de la graficación por computadora se basan en la geometría y el álgebra para crear y manipular imágenes. Utilizan el plano cartesiano (coordenadas X, Y, Z), transformaciones geométricas (escalado, rotación, traslación) y modelos matemáticos como geometría fractal, descriptiva y vectorial para definir puntos, líneas y polígonos. <br> 
 
 <img width="1020" height="500" alt="image" src="https://github.com/user-attachments/assets/eb7b31bd-dfb1-44d8-b1ab-77169e3ea9da" /><br>
 
-Los aspectos matemáticos de la graficación por computadora se basan en la geometría y el álgebra para crear y manipular imágenes. Utilizan el plano cartesiano (coordenadas X, Y, Z), transformaciones geométricas (escalado, rotación, traslación) y modelos matemáticos como geometría fractal, descriptiva y vectorial para definir puntos, líneas y polígonos. <br> 
 Aspectos Matemáticos Clave: <br>
 •	Sistemas de Coordenadas: El uso de coordenadas cartesianas (x, y) en 2D y (x, y, z) en 3D para ubicar píxeles o vértices. <br>
 •	Geometría Computacional: <br>
@@ -126,7 +126,7 @@ Lightroom, que se basa en HSL, dispone de controles para alterar H – matiz, S 
 Siguiendo con Lightroom, éste nos permite fijar la saturación entre gris y color puro para esos 8 colores. Respecto al matiz, nos permite virar los 8 colores a los adyacentes que comentaba en el artículo de luz y color, por ejemplo, para el rojo, desde magenta a naranja. <br>
 Por último, respecto al tono, Lightroom nos permite oscurecer cada uno de esos 8 colores hasta el negro, o bien aclararlo hasta llegar al blanco. <br>
 
-#### Iluminación de un cubo y sus caras, en Blender <br>
+### Iluminación de un cubo y sus caras, en Blender <br>
 Para esta práctica, primero se abre el programa Blender y se selecciona el cubo que aparece por defecto en la escena. Posteriormente, en el panel derecho, se busca la opción Materiales y se da clic sobre ella. <br>
 
 <img width="1172" height="622" alt="image" src="https://github.com/user-attachments/assets/3b7a60cb-e5c6-4d64-910e-556f76fbc8c3" /><br>
@@ -165,23 +165,165 @@ Finalmente, se vuelve a presionar la tecla F12 para visualizar el resultado.<br>
 
 Este procedimiento se repite de la misma manera para aplicar diferentes colores a las demás caras del cubo. <br>
 
-
 <h2>1.5. Representación y trazo de líneas y polígonos.</h2>
+La representación y trazo de líneas y polígonos en graficación consiste en definir figuras geométricas mediante vértices en un plano cartesiano y renderizarlas usando algoritmos como DDA o Bresenham para líneas. Se emplean estructuras de datos para cerrar polígonos uniendo puntos, formando superficies cerradas y contornos. <br>
+
+Representación de Líneas: Se define mediante dos puntos (x_1,y_1) y (x_2,y_2). Los algoritmos principales incluyen: <br>
+	DDA (Digital Differential Analyzer): Algoritmo incremental basado en la pendiente. <br>
+	Bresenham: Algoritmo eficiente que utiliza solo aritmética de enteros, ideal para hardware gráfico. <br>
+	Xiaolin Wu: Algoritmo para antialiasing (suavizado de líneas). <br>
+
+ <img width="1020" height="617" alt="image" src="https://github.com/user-attachments/assets/8fa6c846-7866-482e-8b67-3b507ffa70e1" /> 
+
+Representación de Polígonos: Son superficies planas encerradas por segmentos rectos, definidos por sus vértices en orden (ciclo). Se clasifican en regulares e irregulares. <br>
+Trazo y Visualización: <br>
+	Líneas: Pueden tener distintos grosores, colores y estilos (sólida, punteada). <br>
+	Polígonos: Se trazan uniendo los vértices secuencialmente. Implica el uso de un «lienzo» y métodos gráficos para dibujar el contorno. <br>
+	Líneas Poligonales: Pueden ser abiertas o cerradas (cuando los extremos coinciden). <br>
+
+ Representación en el Plano Cartesiano (Computación)
+•	Se definen los vértices como pares ordenados (x,y).
+•	El trazo sigue un orden consecutivo, uniendo el punto A con B, B con C, y finalmente el último con el primero para cerrar el polígono.
+
+Algoritmos de trazado: <br>
+	DDA: Calcula puntos intermedios sumando la pendiente a la coordenada actual. <br>
+	Bresenham: Selecciona el píxel más cercano a la línea ideal, evitando la división y el redondeo para mayor rapidez. <br>
+ <img width="1020" height="741" alt="image" src="https://github.com/user-attachments/assets/0597adeb-59b4-438f-881e-3f85ce39b3c4" />
+
 
 <h3>1.5.1 Formatos de imagen.</h3>
+Los formatos de imagen en graficación son métodos de codificación y almacenamiento de datos visuales (píxeles o vectores). Se dividen en mapa de bits (JPG, PNG, GIF, TIFF, BMP) y vectoriales (SVG, AI, EPS), determinando la calidad, peso, compresión y transparencia. La elección depende del uso final: web, impresión o edición. <br>
+ <br>
 
-(En este apartado vas a colocar las prácticas de dibujo de un polígono y la flor de la vida, como ejercicio práctico)
+Principales Formatos de Mapa de Bits (Ráster) <br>
+•	JPG/JPEG (Joint Photographic Experts Group): Formato estándar para fotos en web. Ofrece alta compresión, pero pierde calidad al editar y guardar reiteradamente. <br>
+•	PNG (Portable Network Graphics): Ideal para web con fondos transparentes. Utiliza compresión sin pérdida, manteniendo alta calidad. <br>
+•	GIF (Graphics Interchange Format): Limitado a 256 colores. Utilizado para animaciones web simples. <br>
+•	TIFF (Tagged Image File Format): Alta calidad, sin compresión. Utilizado en impresión profesional. <br>
+•	BMP (Bitmap): Formato nativo de Windows, sin compresión, lo que resulta en archivos muy pesados. <br>
+•	RAW: Formato crudo de cámaras digitales con máxima información, esencial para edición profesional. <br>
+
+Formatos Vectoriales <br>
+•	SVG (Scalable Vector Graphics): Estándar web para gráficos escalables que no pierden calidad al cambiar de tamaño. <br>
+•	AI/EPS: Formatos de trabajo de Adobe Illustrator para edición profesional. <br>
+
+<img width="1020" height="444" alt="image" src="https://github.com/user-attachments/assets/3e4572a4-50a2-4a1e-aac5-6dee46ce4d8b" /><br>
+
+Tipos de Compresión <br>
+•	Con pérdida (Lossy): Reduce el peso del archivo eliminando información, como en JPG. <br>
+•	Sin pérdida (Lossless): Reduce el peso sin eliminar información, como en PNG o TIFF. <br>
+
+La elección adecuada entre compresión y calidad es crucial para la velocidad de carga en sitios web (optimizando archivos) o la calidad final en la impresión. <br>
+
+### Prácticas de dibujo de un polígono
+
 ```python
-def saludo():
-    print("Hola Mundo")
+import bpy
+import math
+
+def crear_poligono_2d(nombre, lados, radio):
+    # Crear nueva malla y objeto
+    malla = bpy.data.meshes.new(nombre)
+    objeto = bpy.data.objects.new(nombre, malla)
+
+    # Vincular objeto a la colección actual
+    bpy.context.collection.objects.link(objeto)
+
+    vertices = []
+    aristas = []
+
+    # Crear vértices
+    for i in range(lados):
+        angulo = 2 * math.pi * i / lados
+        x = radio * math.cos(angulo)
+        y = radio * math.sin(angulo)
+        vertices.append((x, y, 0))  # Z = 0 para 2D
+
+    # Crear aristas
+    for i in range(lados):
+        aristas.append((i, (i + 1) % lados))
+
+    # Cargar datos en la malla
+    malla.from_pydata(vertices, aristas, [])
+    malla.update()
+
+
+#  Limpiar escena antes de crear el objeto
+bpy.ops.object.select_all(action='SELECT')
+bpy.ops.object.delete()
+
+#  Llamar función (Hexágono de radio 5)
+crear_poligono_2d("Poligono2D", lados=6, radio=5)
+```
+
+Ejecución:
+Llama a la función con parámetros específicos (ejemplo: un hexágono de radio 5).
+
+<img width="566" height="799" alt="image" src="https://github.com/user-attachments/assets/60663acb-d36c-4822-846c-b1c0fe6de543" />
+
+
+### Prácticas de dibujo de la flor de la vida
+
+```python
+import bpy
+import math
+
+# Limpiar escena
+bpy.ops.object.select_all(action='SELECT')
+bpy.ops.object.delete()
+
+# Parámetros de la figura
+radio = 3
+angulo_actual = 0
+paso_angular = 60  # Cada 60 grados para obtener 6 círculos alrededor
+
+# 1. Círculo central
+bpy.ops.mesh.primitive_circle_add(radius=radio, location=(0, 0, 0), vertices=64)
+
+# --- INICIO DEL PATRÓN REPETITIVO ---
+while angulo_actual < 360:
+    x = radio * math.cos(math.radians(angulo_actual))
+    y = radio * math.sin(math.radians(angulo_actual))
+    
+    bpy.ops.mesh.primitive_circle_add(
+        radius=radio,
+        location=(x, y, 0),
+        vertices=64
+    )
+    
+    angulo_actual += paso_angular
+# --- FIN DEL PATRÓN ---
 ```
 
 ejemplo 
 
 <h2>1.6. Procesamiento de mapas de bits.  </h2>
+El procesamiento de mapas de bits es un conjunto de técnicas y algoritmos utilizados para manipular imágenes digitales que están compuestas por píxeles (mapas de bits o imágenes ráster). Dado que estas imágenes se almacenan como una cuadrícula de datos, el procesamiento se centra en modificar la información de cada píxel, ya sea de forma individual o en relación con sus píxeles vecinos. <br>
+
+<img width="1020" height="510" alt="image" src="https://github.com/user-attachments/assets/2bac88d4-dffe-41eb-98ca-56bb9bd68b49" /><br>
+
+Técnicas Comunes de Procesamiento <br>
+El procesamiento de mapas de bits es la base de la mayoría de los programas de edición de imágenes, como Photoshop. Aquí tienes algunas de las técnicas más importantes: <br>
+•	Filtros y Efectos: Se aplican a los píxeles de una imagen para cambiar su apariencia. Por ejemplo, los filtros de desenfoque (blur) promedian los valores de color de los píxeles vecinos, los filtros de nitidez (sharpen) realzan los bordes y los filtros de relieve (emboss) simulan efectos de luz y sombra. <br>
+•	Transformaciones Geométricas: Permiten modificar la posición y la forma de la imagen. Incluyen: <br>
+o	Rotación: Girar la imagen alrededor de un punto. <br>
+o	Escalado: Aumentar o disminuir el tamaño de la imagen. Al escalar un mapa de bits, se deben interpolar (calcular) los nuevos píxeles para evitar la pérdida de calidad, lo que a menudo puede resultar en imágenes borrosas o pixeladas. <br>
+o	Traslación: Mover la imagen de un lugar a otro. <br>
+•	Ajuste de Color y Brillo: Se manipulan los valores de color de los píxeles para corregir la exposición, cambiar la paleta de colores o crear efectos artísticos. Esto se puede hacer ajustando el brillo, el contraste, la saturación o el balance de color de toda la imagen o de partes específicas. <br>
+•	Compresión: Reduce el tamaño del archivo para facilitar su almacenamiento y transmisión. Los métodos de compresión se dividen en dos categorías: <br>
+o	Compresión con pérdida: Elimina información para reducir drásticamente el tamaño del archivo. El formato JPEG es el ejemplo más conocido, ideal para fotografías. <br>
+o	Compresión sin pérdida: Reduce el tamaño del archivo sin eliminar datos, por lo que la calidad de la imagen original se mantiene intacta. El formato PNG es un ejemplo común, perfecto para logotipos o imágenes con transparencias. <br>
+•	Conversión de Formatos: Se refiere al proceso de cambiar una imagen de un formato a otro. Por ejemplo, convertir un archivo BMP a JPG para reducir su tamaño o un SVG (formato vectorial) a un mapa de bits (proceso llamado rasterización) para poder visualizarlo en una pantalla. <br>
 
 </div>
 
-Referencias 
+# Referencias 
+Client challenge. (s. f.-c). https://es.scribd.com/document/490473069/libro-de-texto-de-graficacion-1
+Notas para el curso de graficación por computadora. (s. f.). https://prometeo.matem.unam.mx/recursos/VariosNiveles/iCartesiLibri/recursos/Notas_Graficacion_por_Computadora/index.html?page=8
+Client challenge. (s. f.). https://es.slideshare.net/slideshow/introduccin-a-la-graficacin-por-computadora/15421140#3
+Client challenge. (s. f.-b). https://es.scribd.com/presentation/526947797/Retroalimentacion-1-3-Aspectos-matematicos-de-la-graficacion
+Antonio. (2016, 19 junio). Modelos de color (RGB, CMYK, HSV/HSL). Antonio Herrera. https://ahenav.wordpress.com/2014/04/09/modelos-de-color/
+Admin_Wp. (s. f.). Formatos de imagen – Blog Software Informático. https://softwareinformatico.com/blog/formatos-de imagen/#:~:text=Formatos%20de%20imagen%20Una%20buena%20elecci%C3%B3n%20en,blogs,%20campa%C3%B1as%20de%20publicidad,%20dise%C3%B1o%20gr%C3%A1fico%20etc.
 
-https://www.scribbr.es/citar/generador/
+
+
