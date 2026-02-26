@@ -83,15 +83,15 @@ La graficación transforma modelos matemáticos abstractos en representaciones v
 
 <img width="1020" height="100" alt="image" src="https://github.com/user-attachments/assets/d1c80605-bda3-4b16-9ab2-916bf0403321" /><br>
 
-<h2>1.4. Modelos del color: RBG, CMY, HSV y HSL.</h2>
+<h2>1.4. Modelos del color: RGB, CMY, HSV y HSL.</h2>
 Un modelo de color establece un conjunto de colores primarios a partir de los que, mediante mezclas, se pueden obtener otros colores hasta cubrir todo el espectro visible, además del propio blanco, negro y grises, y aún más. Por ejemplo, hay colores, como el marrón o el magenta, que no están presentes en el espectro visible, y es nuestro cerebro el que lo interpreta a partir de la combinación de ondas con diferentes longitudes.<br>
 Los modelos de color más comunes son RGB (utilizado en monitores) y CMYK (utilizado para impresión). <br>
 
-Modelos aditivos y sustractivos<br>
+### Modelos aditivos y sustractivos<br>
 Hay dos tipos de modelos de color, los aditivos y los sustractivos. Un modelo aditivo se basa en la adición o mezcla de los colores básicos como forma para obtener el blanco. <br>
 Un modelo sustractivo se basa en la mezcla de los colores primarios de dicho modelo para «sustraer la luz», es decir, para obtener el negro. Cuando empleamos el término «color» en realidad nos referimos al «matiz» o «croma». Y junto a los colores también tenemos los tres casos especiales: el blanco, el negro y los grises. <br>
 
-Modelo RGB<br>
+### Modelo RGB<br>
 El modelo RGB define como colores primarios el rojo, el verde y el azul. La combinación de los tres genera blanco. La ausencia de los tres genera negro. Las diferentes mezclas entre ellos representarían toda la gama de color. De nuevo, los grises se representarían con diferentes intensidades de cada color, pero siempre los tres con el mismo valor.<br>
 
 <img width="1020" height="500" alt="image" src="https://github.com/user-attachments/assets/601695b9-8c6c-4308-9da4-f58221f30904" /><br>
@@ -99,7 +99,7 @@ El modelo RGB define como colores primarios el rojo, el verde y el azul. La comb
 El modelo RBG se utiliza cuando se representa color mediante haces de luz (pantallas o monitores). Un pixel en un monitor se representaría mediante tres subpíxeles o células: una roja, una verde y una azul, correspondiendo cada una a un LED o diodo emisor de luz del respectivo color. <br>
 Si los tres diodos están apagados, obtendríamos el negro. Si están encendidos a diferentes intensidades, obtendríamos colores, si están todos encendidos con la misma intensidad y al máximo, tendríamos el blanco, y si la intensidad es menor pero igual en los tres diodos, obtendríamos grises. <br>
 
-Modelo CMYK<br>
+### Modelo CMYK<br>
 Es un modelo sustractivo y se utiliza en impresión a partir de pigmentos de tres colores básicos: C – cian, M – magenta y Y – amarillo. La K viene del negro, ya que la combinación de los tres anteriores produce un negro poco puro, de ahí que se añada al modelo un pigmento negro puro. Al contrario que en RGB, donde el negro es la ausencia de luz, en CMYK el blanco se representa aquí como ausencia de pigmentos. <br>
 Los colores intermedios se producen a partir de la mezcla en distintas proporciones de los pigmentos base. <br>
 
@@ -116,7 +116,7 @@ En CMYK (cian, magenta, amarillo): <br>
 	Cian y amarillo en igual proporción: obtenemos el verde<br>
 	Magenta y amarillo en igual proporción: obtenemos el rojo<br>
 
-Modelo HSV y HSL<br>
+### Modelo HSV y HSL<br>
 Estos modelos incluyen otros dos parámetros adicionales al matiz o croma para obtener el color, que son la saturación (en ambos) y el valor (en HSV) o la luminosidad o tono (en HSL). De ahí sus siglas: HSL (H – hue o matiz, S – saturation o saturación, L – luminosity o luminosidad/tono), HSV (idem excepto V de value o valor). <br>
 La diferencia entre HSV y HSL es que en HSV la saturación va del color puro al blanco, y en HSL la saturación va del color puro al gris medio, y el tono, en HSV va desde el negro al color, y en HSL va desde el negro al blanco. De ahí que HSL sea el que se utiliza más comúnmente en fotografía. <br>
 
@@ -126,7 +126,7 @@ Lightroom, que se basa en HSL, dispone de controles para alterar H – matiz, S 
 Siguiendo con Lightroom, éste nos permite fijar la saturación entre gris y color puro para esos 8 colores. Respecto al matiz, nos permite virar los 8 colores a los adyacentes que comentaba en el artículo de luz y color, por ejemplo, para el rojo, desde magenta a naranja. <br>
 Por último, respecto al tono, Lightroom nos permite oscurecer cada uno de esos 8 colores hasta el negro, o bien aclararlo hasta llegar al blanco. <br>
 
-### Iluminación de un cubo y sus caras, en Blender <br>
+# Iluminación de un cubo y sus caras, en Blender <br>
 Para esta práctica, primero se abre el programa Blender y se selecciona el cubo que aparece por defecto en la escena. Posteriormente, en el panel derecho, se busca la opción Materiales y se da clic sobre ella. <br>
 
 <img width="1172" height="622" alt="image" src="https://github.com/user-attachments/assets/3b7a60cb-e5c6-4d64-910e-556f76fbc8c3" /><br>
@@ -215,8 +215,22 @@ Tipos de Compresión <br>
 
 La elección adecuada entre compresión y calidad es crucial para la velocidad de carga en sitios web (optimizando archivos) o la calidad final en la impresión. <br>
 
-### Prácticas de dibujo de un polígono
+# Práctica de dibujo de un polígono
+El script automatiza la creación de polígonos regulares (n-gonos) en el espacio 2D de Blender. Utiliza la librería math para calcular coordenadas polares y la API bpy para instanciar objetos de malla (mesh) de forma programática.<br>
 
+ 1. De Polares a Malla (Mesh). Para crear un polígono regular (como un hexágono o un pentágono), el código utiliza el concepto de distribución radial de vértices. A diferencia de la práctica anterior, aquí no solo posicionamos objetos, sino que definimos los puntos exactos que componen una malla.     
+-Cálculo del Ángulo: Se divide una circunferencia completa (2π radianes) entre el número de lados deseados.    
+-Conversión a Cartesianas: Se aplican las funciones trigonométricas para obtener las coordenadas de cada vértice:     
+x = radio·cos(Ɵ)     
+x = radio·sin(Ɵ)     
+
+2. Lógica de Programación: Creación de Datos de Malla. El algoritmo se divide en tres fases críticas para que Blender pueda renderizar el objeto:     
+-Generación de Vértices: Se utiliza un ciclo for para calcular las posiciones (x, y, 0) de cada esquina del polígono y se guardan en una lista.     
+-Definición de Aristas (Edges): Para conectar los puntos, se crean parejas de índices. Por ejemplo, el vértice 0 se conecta con el 1, el 1 con el 2, y así sucesivamente. El uso del operador módulo % permite que el último vértice se conecte automáticamente con el primero para cerrar la figura.     
+-Carga de Datos (from_pydata): Esta es la función clave de Blender que toma las listas de vértices y aristas para construir físicamente la geometría en la escena.
+
+3. Código Implementado y Explicado. El script define una función reutilizable llamada crear_poligono_2d:
+   
 ```python
 import bpy
 import math
@@ -256,13 +270,75 @@ bpy.ops.object.delete()
 crear_poligono_2d("Poligono2D", lados=6, radio=5)
 ```
 
-Ejecución:
-Llama a la función con parámetros específicos (ejemplo: un hexágono de radio 5).
+#### Pasos que realiza el programa
+1. *Importar módulos*:
+    - `bpy`: API de Blender para manipular datos y objetos.
+    - `math`: para cálculos trigonométricos (seno y coseno).
 
-<img width="566" height="799" alt="image" src="https://github.com/user-attachments/assets/60663acb-d36c-4822-846c-b1c0fe6de543" />
+2. *Definir la función `crear_poligono_2d(nombre, lados, radio)`*:
+    - *Crear malla y objeto*:
+        - Se genera una nueva malla (`mesh`) y un objeto (`object`) con el nombre especificado.
+        - El objeto se vincula a la colección activa de la escena.
+
+    - *Calcular vértices*:
+        - Usa trigonometría para generar los vértices de un polígono regular inscrito en un círculo de radio dado.
+        - Los vértices se almacenan en una lista `[x, y, 0]` (el eje Z es 0 para 2D).
+
+    - *Definir aristas*:
+        - Crea conexiones entre los vértices consecutivos (incluyendo el cierre del polígono con el módulo `%`).
+
+    - *Asignar datos a la malla*:
+        - Usa `from_pydata` para cargar los vértices y aristas en la malla.
+        - Actualiza la malla con `update()`.
+
+    - *Limpiar escena*:
+        - Elimina todos los objetos seleccionados antes de crear el nuevo polígono (útil para evitar duplicados).
+
+3. *Ejecución*:
+    - Llama a la función con parámetros específicos (ejemplo: un hexágono de radio 5).
+
+<img width="1020" height="900" alt="image" src="https://github.com/user-attachments/assets/60663acb-d36c-4822-846c-b1c0fe6de543" />
 
 
-### Prácticas de dibujo de la flor de la vida
+# Práctica de dibujo de la flor de la vida
+
+Práctica 1: Geometría Generativa con Python en Blender.
+
+1. La base Matemática: Coordenadas Polares
+Para posicionar cualquier objeto en un círculo (como los centros de los círculos periféricos
+de nuestra figura), no usamos coordenadas X e Y de forma directa, sino coordenadas
+polares (r, Ɵ).
+Para que Blender entienda dónde colocar un objeto, debemos convertir esas coordenadas polares
+a Cartesianas usando las funciones trigonométricas básicas:
+
+x = r·cos(Ɵ)   
+x = r·sin(Ɵ)
+
+Donde r es el radio (la distancia desde el origen) y Ɵ es el ángulo en radianes. En Python,
+como el círculo completo tiene 360°, usamos math.radians() para convertir los grados a
+un formato que las funciones sin y cos entiendan.
+
+2. Lógica de Construcción
+La figura "Flor de la Vida" se basa en un concepto simple: Desplazamiento del Centro.     
+ Círculo Base: Dibujamos un círculo con centro en $(0, 0, 0)$.     
+ Círculos Periféricos: Los centros de los siguientes círculos deben estar ubicados
+exactamente sobre el perímetro del primer círculo.     
+ El Patrón: Si queremos que la figura sea simétrica y perfecta (como la imagen roja),
+necesitamos distribuir los centros uniformemente. Dividimos los 360° de la circunferencia
+entre el número de círculos que queremos (en este caso, 6 círculos, por lo que el paso es de
+60°).
+
+3. Algoritmo de la Práctica (Paso a Paso)      
+ Paso 1: Configuración del entorno. Importar la librería bpy para controlar Blender y
+math para los cálculos. Limpiar la escena para no encimar objetos en cada ejecución.     
+ Paso 2: Definición de variables. Establecer el radio del círculo y el angulo_actual
+(iniciando en 0).     
+ Paso 3: Trazado del origen. Crear la primitiva de círculo en el centro exacto de la
+escena.     
+ Paso 4: Identificación de la repetición. Aquí es donde el alumno nota que para el
+segundo círculo debe sumar 60° al ángulo, calcular la nueva $x, y$, y volver a ejecutar el
+comando de creación.
+Explicación de la ejecución del código en Blender (Python)
 
 ```python
 import bpy
@@ -274,6 +350,7 @@ bpy.ops.object.delete()
 
 # Parámetros de la figura
 radio = 3
+
 angulo_actual = 0
 paso_angular = 60  # Cada 60 grados para obtener 6 círculos alrededor
 
@@ -294,8 +371,22 @@ while angulo_actual < 360:
     angulo_actual += paso_angular
 # --- FIN DEL PATRÓN ---
 ```
+<br>
+Explicación de la ejecución del código en Blender (Python)<br>
+Primero, el código importa los módulos bpy y math, los cuales permiten trabajar con Blender y realizar cálculos matemáticos como seno y coseno.<br>
+Después, se limpia la escena seleccionando todos los objetos existentes y eliminándolos, para comenzar con un espacio vacío.<br>
 
-ejemplo 
+A continuación, se define el radio de los círculos con un valor de 3 y se inicializan las variables angulo_actual y paso_angular. El paso angular se establece en 60 grados para poder distribuir seis círculos de forma uniforme alrededor del centro.<br>
+
+Luego, se crea un círculo central ubicado en el origen (0,0,0) con 64 vértices, lo que permite que tenga una forma suave.<br>
+Posteriormente, el programa entra en un ciclo while que se ejecuta mientras el ángulo sea menor a 360 grados. En cada iteración, se calculan las coordenadas x e y usando funciones trigonométricas para posicionar los círculos alrededor del círculo central.<br>
+
+Finalmente, en cada iteración se genera un nuevo círculo en la posición calculada y se incrementa el ángulo, repitiendo el proceso hasta completar los 360 grados, formando un patrón circular de seis círculos alrededor del centro.<br>
+
+Ejecución: El resultado final es una estructura equilibrada y repetitiva, similar a una flor o roseta geométrica.
+
+<img width="1020" height="900" alt="image" src="https://github.com/user-attachments/assets/f497cb5a-6dc0-48cb-9439-bb1a29e9b4a8" /><br>
+
 
 <h2>1.6. Procesamiento de mapas de bits.  </h2>
 El procesamiento de mapas de bits es un conjunto de técnicas y algoritmos utilizados para manipular imágenes digitales que están compuestas por píxeles (mapas de bits o imágenes ráster). Dado que estas imágenes se almacenan como una cuadrícula de datos, el procesamiento se centra en modificar la información de cada píxel, ya sea de forma individual o en relación con sus píxeles vecinos. <br>
